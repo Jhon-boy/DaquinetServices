@@ -1,4 +1,4 @@
-import { tickets, servicios, unaTarea, misTareas, tokereponse } from "./datos.js"
+import { tickets, servicios, unaTarea, misTareas, tokereponse, misTaresAsignadas } from "./datos.js"
 
 export const getTareas = (req, res) => {
 
@@ -229,3 +229,30 @@ const mapEstadoIdToName = (idEstado) => {
             return "";
     }
 };
+
+export const TareasAsignadas = (req, res) => {
+
+    const bearerHeader = req.headers['authorization'];
+    if (!bearerHeader) {
+        return res.status(401);
+    }
+
+    const { idUsuario, caracter } = req.params;
+
+    if (idUsuario != 78) {
+        const responsebad = {
+            codeError: 500,
+            message: "Tarea actualizada exitosamente.",
+            content: null,
+        };
+
+        return res.status(500).json(responsebad);
+    }
+    const response = {
+        codeError: 200,
+        message: 'Listado de Tareas',
+        content: misTaresAsignadas
+    }
+
+    return res.status(200).json(response);
+}

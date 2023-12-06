@@ -743,4 +743,251 @@ export const  tickets = [
   }
   ]
 
+ export const misTaresAsignadas = [
+    {
+        "idTarea": 19018,
+        "tarea": "Tarea creada desde DAQUINET app",
+        "estado": "Nuevo",
+        "prioridad": "Normal",
+        "asignado": "Daquinet Ticket",
+        "fechaCreacion": "2023-12-05T22:43:13Z",
+        "detalles": [
+            {
+                "id": 47,
+                "name": "PROYECTO/POA",
+                "value": ""
+            },
+            {
+                "id": 63,
+                "name": "CATEGORÍA",
+                "value": ""
+            },
+            {
+                "id": 64,
+                "name": "cAgencia",
+                "value": "1"
+            },
+            {
+                "id": 65,
+                "name": "cUsuarioSolicitante",
+                "value": "121"
+            },
+            {
+                "id": 66,
+                "name": "cUsuarioResponsable",
+                "value": "78"
+            }
+        ]
+    },
+    {
+        "idTarea": 18837,
+        "tarea": "Telefono no srive",
+        "estado": "Finalizada con éxito",
+        "prioridad": "Normal",
+        "asignado": "Daquinet Ticket",
+        "fechaCreacion": "2023-11-13T19:12:32Z",
+        "detalles": [
+            {
+                "id": 47,
+                "name": "PROYECTO/POA",
+                "value": ""
+            },
+            {
+                "id": 63,
+                "name": "CATEGORÍA",
+                "value": ""
+            },
+            {
+                "id": 64,
+                "name": "cAgencia",
+                "value": "1"
+            },
+            {
+                "id": 65,
+                "name": "cUsuarioSolicitante",
+                "value": "121"
+            },
+            {
+                "id": 66,
+                "name": "cUsuarioResponsable",
+                "value": "78"
+            }
+        ]
+    },
+    {
+        "idTarea": 18824,
+        "tarea": "Probando flujo",
+        "estado": "Finalizada con éxito",
+        "prioridad": "Normal",
+        "asignado": "Daquinet Ticket",
+        "fechaCreacion": "2023-11-10T21:51:12Z",
+        "detalles": [
+            {
+                "id": 47,
+                "name": "PROYECTO/POA",
+                "value": ""
+            },
+            {
+                "id": 63,
+                "name": "CATEGORÍA",
+                "value": ""
+            },
+            {
+                "id": 64,
+                "name": "cAgencia",
+                "value": "1"
+            },
+            {
+                "id": 65,
+                "name": "cUsuarioSolicitante",
+                "value": "121"
+            },
+            {
+                "id": 66,
+                "name": "cUsuarioResponsable",
+                "value": "78"
+            }
+        ]
+    },
+    {
+        "idTarea": 18814,
+        "tarea": "Falla de Caja 2.0 - Actualizado desde la App",
+        "estado": "Finalizada con éxito",
+        "prioridad": "Normal",
+        "asignado": "Daquinet Ticket",
+        "fechaCreacion": "2023-11-09T22:37:33Z",
+        "detalles": [
+            {
+                "id": 47,
+                "name": "PROYECTO/POA",
+                "value": ""
+            },
+            {
+                "id": 63,
+                "name": "CATEGORÍA",
+                "value": ""
+            },
+            {
+                "id": 64,
+                "name": "cAgencia",
+                "value": "1"
+            },
+            {
+                "id": 65,
+                "name": "cUsuarioSolicitante",
+                "value": "121"
+            },
+            {
+                "id": 66,
+                "name": "cUsuarioResponsable",
+                "value": "78"
+            }
+        ]
+    },
+    {
+        "idTarea": 18792,
+        "tarea": "Se daño La maquina Net ",
+        "estado": "Finalizada con éxito",
+        "prioridad": "Normal",
+        "asignado": "Daquinet Ticket",
+        "fechaCreacion": "2023-11-08T20:38:42Z",
+        "detalles": [
+            {
+                "id": 47,
+                "name": "PROYECTO/POA",
+                "value": ""
+            },
+            {
+                "id": 63,
+                "name": "CATEGORÍA",
+                "value": ""
+            },
+            {
+                "id": 64,
+                "name": "cAgencia",
+                "value": "1"
+            },
+            {
+                "id": 65,
+                "name": "cUsuarioSolicitante",
+                "value": "121"
+            },
+            {
+                "id": 66,
+                "name": "cUsuarioResponsable",
+                "value": "78"
+            }
+        ]
+    },
+    {
+        "idTarea": 18789,
+        "tarea": "TAREA MODIFICADO DESDE SPRING BOOT 6/11/2023 ",
+        "estado": "Finalizado sin exito",
+        "prioridad": "Normal",
+        "asignado": "Daquinet Ticket",
+        "fechaCreacion": "2023-11-08T20:09:28Z",
+        "detalles": [
+            {
+                "id": 47,
+                "name": "PROYECTO/POA",
+                "value": ""
+            },
+            {
+                "id": 63,
+                "name": "CATEGORÍA",
+                "value": ""
+            },
+            {
+                "id": 64,
+                "name": "cAgencia",
+                "value": "4"
+            },
+            {
+                "id": 65,
+                "name": "cUsuarioSolicitante",
+                "value": "4"
+            },
+            {
+                "id": 66,
+                "name": "cUsuarioResponsable",
+                "value": "78"
+            }
+        ]
+    },
+    {
+        "idTarea": 18764,
+        "tarea": "Probando flujo - DAQUINET app X2",
+        "estado": "EN DESARROLLO",
+        "prioridad": "Normal",
+        "asignado": "Daquinet Ticket",
+        "fechaCreacion": "2023-11-06T18:59:37Z",
+        "detalles": [
+            {
+                "id": 47,
+                "name": "PROYECTO/POA",
+                "value": ""
+            },
+            {
+                "id": 63,
+                "name": "CATEGORÍA",
+                "value": ""
+            },
+            {
+                "id": 64,
+                "name": "cAgencia",
+                "value": "4"
+            },
+            {
+                "id": 65,
+                "name": "cUsuarioSolicitante",
+                "value": "121"
+            },
+            {
+                "id": 66,
+                "name": "cUsuarioResponsable",
+                "value": "78"
+            }
+        ]
+    }
+ ]
   export const  tokereponse = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyYTk5ZmU1ZTYxYjU5YTZiNDc3MTNjNzg5NDcxMTA3NmRmMDU1ZmVhNWI5NDEyMzFlYzM5MjgzM2IxMDI5ZGE0IiwiaWF0IjoxNzAxODg4MTY4LCJleHAiOjE3MDE4ODk5Njh9.UeYZiHosxw1-MjG1Q3YPCXqZRlLqGeGG5Z6zTVsM5-U";
