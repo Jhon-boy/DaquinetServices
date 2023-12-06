@@ -742,3 +742,5 @@ export const  tickets = [
       ]
   }
   ]
+
+  export const  tokereponse = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyYTk5ZmU1ZTYxYjU5YTZiNDc3MTNjNzg5NDcxMTA3NmRmMDU1ZmVhNWI5NDEyMzFlYzM5MjgzM2IxMDI5ZGE0IiwiaWF0IjoxNzAxODg4MTY4LCJleHAiOjE3MDE4ODk5Njh9.UeYZiHosxw1-MjG1Q3YPCXqZRlLqGeGG5Z6zTVsM5-U";

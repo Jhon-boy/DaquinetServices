@@ -1,6 +1,11 @@
-import { tickets, servicios, unaTarea, misTareas } from "./datos.js"
+import { tickets, servicios, unaTarea, misTareas, tokereponse } from "./datos.js"
 
 export const getTareas = (req, res) => {
+
+    const bearerHeader = req.headers['authorization'];
+    if (!bearerHeader) {
+        return res.status(401);
+    }
 
     const response = {
 
@@ -57,6 +62,11 @@ export const getServicios = (req, res) => {
 };
 
 export const getTarea = (req, res) => {
+    const bearerHeader = req.headers['authorization'];
+    if (!bearerHeader) {
+        return res.status(401);
+    }
+
     // Extract idtarea from request parameters
     const idTareaParam = req.params.idtarea;
 
@@ -100,6 +110,12 @@ export const getTarea = (req, res) => {
 }
 
 export const createTarea = (req, res) => {
+
+    const bearerHeader = req.headers['authorization'];
+    if (!bearerHeader) {
+        return res.status(401);
+    }
+
     const {
         cusuario,
         cAgencia,
@@ -119,7 +135,7 @@ export const createTarea = (req, res) => {
             content: null,
         };
 
-        return res.status(400).json(response);
+        return res.status(500).json(response);
     }
 
     const newIdTarea = generateUniqueId();
@@ -150,60 +166,66 @@ const generateUniqueId = () => {
 
 
 export const updateTicket = (req, res) => {
+
+    const bearerHeader = req.headers['authorization'];
+    if (!bearerHeader) {
+        return res.status(401);
+    }
+
     const {
-      cusuario,
-      idTarea,
-      tarea,
-      descripcion,
-      idEstado,
-      idCategoria,
-      categoria,
-      cUsuarioResponsable, 
-      notas,
-      usuarioMod,
+        cusuario,
+        idTarea,
+        tarea,
+        descripcion,
+        idEstado,
+        idCategoria,
+        categoria,
+        cUsuarioResponsable,
+        notas,
+        usuarioMod,
     } = req.body;
 
     const foundTicketIndex = tickets.findIndex(ticket => ticket.idTarea === idTarea);
-  
+
     if (foundTicketIndex === -1) {
-      const response = {
-        codeError: 500,
-        message: "No es posible realizar la acción. La tarea no se encuentra.",
-        content: null,
-      };
-  
-      return res.status(500).json(response);
+        const response = {
+            codeError: 500,
+            message: "No es posible realizar la acción. La tarea no se encuentra.",
+            content: null,
+        };
+
+        return res.status(500).json(response);
     }
-  
+
     tickets[foundTicketIndex] = {
-      idTarea,
-      tarea,
-      estado: mapEstadoIdToName(idEstado),
-      descripcion,
+        idTarea,
+        tarea,
+        estado: mapEstadoIdToName(idEstado),
+        descripcion,
 
     };
-  
+
     const response = {
-      codeError: 200,
-      message: "Tarea actualizada exitosamente.",
-      content: null,
+        codeError: 200,
+        message: "Tarea actualizada exitosamente.",
+        content: null,
     };
-  
+
     return res.status(200).json(response);
-  };
-  
-  // Function to map estado id to estado name
-  const mapEstadoIdToName = (idEstado) => {
+};
+
+// Function to map estado id to estado name
+const mapEstadoIdToName = (idEstado) => {
     switch (idEstado) {
-      case 1:
-        return "Nueva";
-      case 2:
-        return "EN DESARROLLO";
-      case 7:
-        return "Finalizada con éxito";
-      case 8:
-        return "Finalizada sin éxito";
-      default:
-        return "";
+        case 1:
+            return "Nueva";
+        case 2:
+            return "EN DESARROLLO";
+        case 7:
+            return "Finalizada con éxito";
+        case 8:
+            return "Finalizada sin éxito";
+        default:
+            return "";
     }
-  };
+};
