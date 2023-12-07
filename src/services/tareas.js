@@ -1,10 +1,10 @@
-import { tickets, servicios, unaTarea, misTareas, tokereponse, misTaresAsignadas } from "./datos.js"
+import { tickets, servicios, unaTarea, misTareas, tokereponse, misTaresAsignadas, tareasCreadas } from "./datos.js"
 
 export const getTareas = (req, res) => {
 
     const bearerHeader = req.headers['authorization'];
     if (!bearerHeader) {
-        return res.status(401);
+        return res.status(403);
     }
 
     const response = {
@@ -32,39 +32,45 @@ export const getTareas = (req, res) => {
 }
 
 
-export const getServicios = (req, res) => {
-    const response = {
-        codeError: 200,
-        message: "Listado de Tickets",
-        content: {
-            servicios: tickets.map(ticket => ({
-                idTarea: ticket.idTarea,
-                tarea: ticket.tarea,
-                estado: ticket.estado,
-                prioridad: ticket.prioridad,
-                asignado: ticket.asignado,
-                fechaCreacion: ticket.fechaCreacion,
-                detalles: ticket.detalles.map(detalle => ({
-                    id: detalle.id,
-                    name: detalle.name,
-                    value: detalle.value
-                }))
-            })),
-            // Adding additional service-related information
-            estados: servicios[0].content.estados,
-            categorias: servicios[0].content.categorias,
-            proyecto: servicios[0].content.proyecto,
-            prioridades: servicios[0].content.prioridades
-        }
-    };
+    export const getServicios = (req, res) => {
 
-    return res.json(response);
-};
+        const bearerHeader = req.headers['authorization'];
+        if (!bearerHeader) {
+            return res.status(403);
+        }
+
+        const response = {
+            codeError: 200,
+            message: "Listado de Tickets",
+            content: {
+                servicios: tickets.map(ticket => ({
+                    idTarea: ticket.idTarea,
+                    tarea: ticket.tarea,
+                    estado: ticket.estado,
+                    prioridad: ticket.prioridad,
+                    asignado: ticket.asignado,
+                    fechaCreacion: ticket.fechaCreacion,
+                    detalles: ticket.detalles.map(detalle => ({
+                        id: detalle.id,
+                        name: detalle.name,
+                        value: detalle.value
+                    }))
+                })),
+                // Adding additional service-related information
+                estados: servicios[0].content.estados,
+                categorias: servicios[0].content.categorias,
+                proyecto: servicios[0].content.proyecto,
+                prioridades: servicios[0].content.prioridades
+            }
+        };
+
+        return res.json(response);
+    };
 
 export const getTarea = (req, res) => {
     const bearerHeader = req.headers['authorization'];
     if (!bearerHeader) {
-        return res.status(401);
+        return res.status(403);
     }
 
     // Extract idtarea from request parameters
@@ -113,7 +119,7 @@ export const createTarea = (req, res) => {
 
     const bearerHeader = req.headers['authorization'];
     if (!bearerHeader) {
-        return res.status(401);
+        return res.status(403);
     }
 
     const {
@@ -242,7 +248,7 @@ export const TareasAsignadas = (req, res) => {
     if (idUsuario != 78) {
         const responsebad = {
             codeError: 500,
-            message: "Tarea actualizada exitosamente.",
+            message: "Ha ocurrido un problema.",
             content: null,
         };
 
@@ -255,4 +261,32 @@ export const TareasAsignadas = (req, res) => {
     }
 
     return res.status(200).json(response);
+}
+
+export const mistareasCreadas = (req, res) => {
+
+    const bearerHeader = req.headers['authorization'];
+    if (!bearerHeader) {
+        return res.status(401);
+    }
+
+    const { idUsuario, caracter } = req.params;
+
+    if (idUsuario != 78) {
+
+        const responsebad = {
+            codeError: 500,
+            message: "Tareas creadas",
+            content: null,
+        };
+        return res.status(500).json(responsebad);
+    }
+
+    const response = {
+        codeError: 200,
+        message: 'Listado de tareas creadas',
+        content: tareasCreadas
+    }
+    return res.status(200).json(response);
+
 }

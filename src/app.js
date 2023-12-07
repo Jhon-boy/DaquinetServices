@@ -1,5 +1,6 @@
 import express from 'express'
 import router from './routes/routes.js';
+import swaggerDocs from './routes/swagger.js';
 
 const app = express();
 app.use(express.json());
@@ -11,6 +12,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/daquinet', router)
+
+swaggerDocs(app, 8081);
+
+app.use(router)
 
 export default app;
