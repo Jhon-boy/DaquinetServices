@@ -433,7 +433,7 @@ router.get('/daquinet/RD/tarea/misTareasCreadas/:idUsuario/:caracter', mistareas
  *         description: Todos los campos son obligatorios.
  */
 
-router.post('daquinet/login', dispositivoDiscofianza)
+router.post('/daquinet/login', dispositivoDiscofianza)
 
 /**
  * @openapi
@@ -496,6 +496,6 @@ router.post('daquinet/login', dispositivoDiscofianza)
  *         description: Todos los campos son obligatorios o Autentificación fallida. Inténtalo más tarde.
  */
 
-router.post('daquinet/inicioSesion', loginByUsuarioAndPass)
+router.post('/daquinet/inicioSesion', loginByUsuarioAndPass)
     
 export default router;
