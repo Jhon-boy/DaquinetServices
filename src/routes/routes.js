@@ -42,7 +42,7 @@ const BASE_PATH = '/daquinet'
  */
 
 
-router.get(`${BASE_PATH}/RD/tareas}`, getTareas)
+router.get('/daquinet/RD/tareas', getTareas)
 
 /**
  * @openapi
@@ -82,7 +82,7 @@ router.get(`${BASE_PATH}/RD/tareas}`, getTareas)
  *       500:
  *         description: No es posible realizar la acción. La tarea no se encuentra.
  */
-router.get(`${BASE_PATH}/RD/tarea/:idtarea`, getTarea)
+router.get('/daquinet/RD/tarea/:idtarea', getTarea)
 
 /**
  * @openapi
@@ -134,7 +134,7 @@ router.get(`${BASE_PATH}/RD/tarea/:idtarea`, getTarea)
  *         description: No se proporcionó un token de autorización
  */
 
-router.get(`${BASE_PATH}/RD/servicios`, getServicios)
+router.get('/daquinet/RD/servicios', getServicios)
 
 /**
  * @openapi
@@ -200,7 +200,7 @@ router.get(`${BASE_PATH}/RD/servicios`, getServicios)
  */
 
 
-router.post(`${BASE_PATH}/RD/tarea`, createTarea)
+router.post('/daquinet/RD/tarea', createTarea)
 
 /**
  * @openapi
@@ -270,7 +270,7 @@ router.post(`${BASE_PATH}/RD/tarea`, createTarea)
  *         description: No es posible realizar la acción. La tarea no se encuentra.
  */
 
-router.put(`${BASE_PATH}/RD/tarea`, updateTicket)
+router.put('/daquinet/RD/tarea', updateTicket)
 
 /**
  * @openapi
@@ -319,7 +319,7 @@ router.put(`${BASE_PATH}/RD/tarea`, updateTicket)
  *         description: Ha ocurrido un problema.
  */
 
-router.get(`${BASE_PATH}/RD/tarea/misTareas/:idUsuario/:caracter`, TareasAsignadas)
+router.get('/daquinet/RD/tarea/misTareas/:idUsuario/:caracter', TareasAsignadas)
 /**
  * @openapi
  * /daquinet/RD/tarea/misTareasCreadas/{idUsuario}/{caracter}:
@@ -367,7 +367,7 @@ router.get(`${BASE_PATH}/RD/tarea/misTareas/:idUsuario/:caracter`, TareasAsignad
  *         description: Tareas creadas
  */
 
-router.get(`${BASE_PATH}/RD/tarea/misTareasCreadas/:idUsuario/:caracter`, mistareasCreadas)
+router.get('/daquinet/RD/tarea/misTareasCreadas/:idUsuario/:caracter', mistareasCreadas)
 
 // dispositivo Confianza
 /**
@@ -433,7 +433,7 @@ router.get(`${BASE_PATH}/RD/tarea/misTareasCreadas/:idUsuario/:caracter`, mistar
  *         description: Todos los campos son obligatorios.
  */
 
-router.post(`${BASE_PATH}/login`, dispositivoDiscofianza)
+router.post('daquinet/login', dispositivoDiscofianza)
 
 /**
  * @openapi
@@ -496,6 +496,6 @@ router.post(`${BASE_PATH}/login`, dispositivoDiscofianza)
  *         description: Todos los campos son obligatorios o Autentificación fallida. Inténtalo más tarde.
  */
 
-router.post(`${BASE_PATH}/inicioSesion`, loginByUsuarioAndPass)
+router.post('daquinet/inicioSesion', loginByUsuarioAndPass)
     
 export default router;

@@ -13,7 +13,7 @@ app.use((req, res, next) => {
 });
 
 
-swaggerDocs(app, 8081);
+swaggerDocs(app, 8080);
 
 app.use(router)
 

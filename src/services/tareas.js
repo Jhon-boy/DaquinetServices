@@ -2,10 +2,10 @@ import { tickets, servicios, unaTarea, misTareas, tokereponse, misTaresAsignadas
 
 export const getTareas = (req, res) => {
 
-    const bearerHeader = req.headers['authorization'];
-    if (!bearerHeader) {
-        return res.status(403);
-    }
+    // const bearerHeader = req.headers['authorization'];
+    // if (!bearerHeader) {
+    //     return res.status(403);
+    // }
 
     const response = {
 
@@ -43,19 +43,6 @@ export const getTareas = (req, res) => {
             codeError: 200,
             message: "Listado de Tickets",
             content: {
-                servicios: tickets.map(ticket => ({
-                    idTarea: ticket.idTarea,
-                    tarea: ticket.tarea,
-                    estado: ticket.estado,
-                    prioridad: ticket.prioridad,
-                    asignado: ticket.asignado,
-                    fechaCreacion: ticket.fechaCreacion,
-                    detalles: ticket.detalles.map(detalle => ({
-                        id: detalle.id,
-                        name: detalle.name,
-                        value: detalle.value
-                    }))
-                })),
                 // Adding additional service-related information
                 estados: servicios[0].content.estados,
                 categorias: servicios[0].content.categorias,
