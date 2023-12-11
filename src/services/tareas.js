@@ -54,53 +54,57 @@ export const getTareas = (req, res) => {
         return res.json(response);
     };
 
-export const getTarea = (req, res) => {
-    const bearerHeader = req.headers['authorization'];
-    if (!bearerHeader) {
-        return res.status(403);
-    }
-
-    // Extract idtarea from request parameters
-    const idTareaParam = req.params.idtarea;
-
-    // Find the corresponding unaTarea based on idTarea
-    const foundTarea = unaTarea.find(tarea => tarea.content.idTarea === parseInt(idTareaParam));
-
-    if (!foundTarea) {
-        const response = {
-            codeError: 500,
-            message: "No es posible realizar la acción. La tarea no se encuentra.",
-            content: null,
-        };
-
-        return res.status(500).json(response);
-    }
-    const response = {
-        codeError: 200,
-        message: "Información del Ticket",
-        content: {
-            idTarea: unaTarea[0].content.idTarea,
-            tarea: unaTarea[0].content.tarea,
-            descripcion: unaTarea[0].content.descripcion,
-            proyecto: unaTarea[0].content.proyecto,
-            idEstado: unaTarea[0].content.idEstado,
-            estado: unaTarea[0].content.estado,
-            prioridad: unaTarea[0].content.prioridad,
-            idAutor: unaTarea[0].content.idAutor,
-            autor: unaTarea[0].content.autor,
-            asignado: unaTarea[0].content.asignado,
-            fechaSolicitud: unaTarea[0].content.fechaSolicitud,
-            fechaContestacion: unaTarea[0].content.fechaContestacion,
-            detalles: unaTarea[0].content.detalles.map(detalle => ({
-                id: detalle.id,
-                name: detalle.name,
-                value: detalle.value
-            }))
+    export const getTarea = (req, res) => {
+        const bearerHeader = req.headers['authorization'];
+        if (!bearerHeader) {
+            return res.status(403).send("Authorization header is missing");
         }
+    
+        // Extract idtarea from request parameters
+        const idTareaParam = parseInt(req.params.idtarea);
+        if (isNaN(idTareaParam)) {
+            return res.status(400).send("Invalid idtarea parameter");
+        }
+    
+        const foundTarea = tickets.find(tarea => tarea.idTarea === idTareaParam);
+    
+        if (!foundTarea) {
+            const response = {
+                codeError: 500,
+                message: "No es posible realizar la acción. La tarea no se encuentra.",
+                content: null,
+            };
+    
+            return res.status(500).json(response);
+        }
+    
+        const response = {
+            codeError: 200,
+            message: "Información del Ticket",
+            content: {
+                idTarea: foundTarea.idTarea,
+                tarea: foundTarea.tarea,
+                descripcion: foundTarea.descripcion,
+                proyecto: foundTarea.proyecto,
+                idEstado: foundTarea.idEstado,
+                estado: foundTarea.estado,
+                prioridad: foundTarea.prioridad,
+                idAutor: foundTarea.idAutor,
+                autor: foundTarea.autor,
+                asignado: foundTarea.asignado,
+                fechaSolicitud: foundTarea.fechaSolicitud,
+                fechaContestacion: foundTarea.fechaContestacion,
+                detalles: foundTarea.detalles.map(detalle => ({
+                    id: detalle.id,
+                    name: detalle.name,
+                    value: detalle.value
+                }))
+            }
+        };
+    
+        return res.json(response);
     };
-
-    return res.json(response);
-}
+    
 
 export const createTarea = (req, res) => {
 

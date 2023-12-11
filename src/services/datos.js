@@ -109,7 +109,7 @@ export const  tickets = [
       {
         "idTarea": 18844,
         "tarea": "Probando flujo",
-        "estado": "Finalizada sin éxito",
+        "estado": "Nueva",
         "prioridad": "Normal",
         "asignado": "Daquinet Ticket",
         "fechaCreacion": "2023-11-10T21:51:12Z",
