@@ -2,10 +2,13 @@ import { Router } from 'express';
 import { getServicios, getTareas, getTarea, createTarea, updateTicket, TareasAsignadas, mistareasCreadas } from '../services/tareas.js';
 import { dispositivoDiscofianza } from '../services/dispositivo.js';
 import { loginByUsuarioAndPass } from '../services/usuario.js';
+import { getUsuariosDaquiNet } from '../services/ZIMA.js';
 
 
 const router = new Router();
 const BASE_PATH = '/daquinet'
+
+router.get('/daquinet/servicioUsuario', getUsuariosDaquiNet)
 /**
  * @openapi
  * /daquinet/RD/tareas:
